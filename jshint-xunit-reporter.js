@@ -33,18 +33,18 @@ module.exports =
             files[result.file].push(result.error);
         });
 
-        out.push("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
-        out.push("<testsuite name=\"JSHint\">");
+        out.push("<?xml version=\"1.0\" ?>");
+        out.push("<testsuite name=\"JSHint\" time=\"0.000\">");
 
         for (file in files) {
             for (i = 0; i < files[file].length; i++) {
                 issue = files[file][i];
-                out.push("\t<testcase classname=\"jshint." + file + ".Issue#" + i +"\">");
-                out.push("\t\t<error message=\"line " + issue.line +", col " + issue.character + ", " + encode(issue.reason) + "\" type=\"JSHint Error\">");
-                out.push("\t\t</error>");
+                out.push("\t<testcase name=\"jshint." + file + ".Issue#" + i +"\" time=\"0.000\">");
+                out.push("\t\t<failure message=\"line " + issue.line +", col " + issue.character + ", " + encode(issue.reason) + "\" type=\"JSHint Error\">");
+                out.push("\t\t</failure>");
                 out.push("\t</testcase>");
             }
-        }
+       }
 
         out.push("</testsuite>");
 
