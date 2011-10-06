@@ -35,7 +35,7 @@ module.exports =
 
         out.push("<?xml version=\"1.0\" ?>");
         out.push("<testsuite name=\"JSHint\" time=\"0.000\">");
-
+        out.push("\t<testcase name=\"Generic JSHint Test\"  time=\"0.000\"/>");
         for (file in files) {
             for (i = 0; i < files[file].length; i++) {
                 issue = files[file][i];
